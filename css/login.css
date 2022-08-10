@@ -1,0 +1,30 @@
+main {
+	width: 100%;
+	height: calc(100vh - 152px);
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	background-color: #f8f9fa;
+}
+
+.login-img {
+	width: 100%;
+}
+
+.form-signin {
+	width: 100%;
+	max-width: 430px;
+	padding: 15px;
+}
+
+#msg-error1,
+#msg-error2 {
+	color: #dc3545;
+}
+
+footer p:not(:nth-child(3)) {
+	display: flex;
+}
