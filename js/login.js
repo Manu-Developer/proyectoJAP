@@ -13,7 +13,7 @@ btnSubmit.addEventListener("click", (event) => {
 		emailInput.style.border = "none";
 		msgError1.style.display = "none";
 		if (passwordInput.value.match(passwordRegex)) {
-			window.location.replace("index.html");
+			window.location.replace("main.html");
 		} else {
 			passwordInput.style.border = "1px solid #dc3545";
 			msgError2.style.display = "block";
