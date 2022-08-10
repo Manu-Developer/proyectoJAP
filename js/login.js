@@ -15,17 +15,13 @@ btnSubmit.addEventListener("click", (event) => {
 		if (passwordInput.value.match(passwordRegex)) {
 			window.location.replace("index.html");
 		} else {
-			passwordInput.style.border = "1px solid red";
+			passwordInput.style.border = "1px solid #dc3545";
 			msgError2.style.display = "block";
 			msgError2.innerHTML = "Ingrese una contraseña válida";
 		}
 	} else {
-		emailInput.style.border = "1px solid red";
+		emailInput.style.border = "1px solid #dc3545";
 		msgError1.style.display = "block";
 		msgError1.innerHTML = "Ingrese un Email válido";
 	}
-});
-
-document.getElementById("password").addEventListener("change", (event) => {
-	msgError.style.display = "none";
 });
