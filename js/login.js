@@ -6,7 +6,7 @@ const msgError2 = document.getElementById("msg-error2");
 
 btnSubmit.addEventListener("click", (event) => {
 	event.preventDefault();
-	const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+	const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$/;
 	const passwordRegex = /^[(a-zA-Z0-9!@#$%^&*_)]{8,}$/;
 
 	if (emailInput.value.match(emailRegex)) {
