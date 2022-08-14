@@ -1,8 +1,8 @@
 const emailInput = document.getElementById("username");
 const passwordInput = document.getElementById("password");
 const btnSubmit = document.getElementById("btnSubmit");
-const msgError1 = document.getElementById("msg-error1");
-const msgError2 = document.getElementById("msg-error2");
+const msgInfo1 = document.getElementById("msg-info1");
+const msgInfo2 = document.getElementById("msg-info2");
 
 btnSubmit.addEventListener("click", (event) => {
 	event.preventDefault();
@@ -10,18 +10,23 @@ btnSubmit.addEventListener("click", (event) => {
 	const passwordRegex = /^[(a-zA-Z0-9!@#$%^&*_)]{8,}$/;
 
 	if (emailInput.value.match(emailRegex)) {
-		emailInput.style.border = "none";
-		msgError1.style.display = "none";
+		emailInput.style.border = "1px solid #00992E";
+		msgInfo1.style.display = "block";
+		msgInfo1.innerHTML = "¡Perfecto!";
 		if (passwordInput.value.match(passwordRegex)) {
 			window.location.replace("main.html");
 		} else {
+			passwordInput.value = "";
+			passwordInput.focus();
 			passwordInput.style.border = "1px solid #dc3545";
-			msgError2.style.display = "block";
-			msgError2.innerHTML = "Ingrese una contraseña válida";
+			msgInfo2.style.display = "block";
+			msgInfo2.innerHTML = "Ingrese una contraseña válida";
 		}
 	} else {
+		emailInput.focus();
+		emailInput.value = "";
 		emailInput.style.border = "1px solid #dc3545";
-		msgError1.style.display = "block";
-		msgError1.innerHTML = "Ingrese un Email válido";
+		msgInfo1.style.display = "block";
+		msgInfo1.innerHTML = "Ingrese un Email válido";
 	}
 });
