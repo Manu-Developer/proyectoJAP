@@ -1,4 +1,4 @@
-const emailInput = document.getElementById("username");
+const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 const btnSubmit = document.getElementById("btnSubmit");
 const msgInfo1 = document.getElementById("msg-info1");
