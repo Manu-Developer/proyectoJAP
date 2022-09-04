@@ -1,3 +1,7 @@
+body {
+	background-color: #f8f9fa;
+}
+
 main {
 	width: 100%;
 	height: calc(100vh - 152px);

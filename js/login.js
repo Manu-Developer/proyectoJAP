@@ -14,6 +14,7 @@ btnSubmit.addEventListener("click", (event) => {
 		msgInfo1.style.display = "block";
 		msgInfo1.innerHTML = "¡Perfecto!";
 		if (passwordInput.value.match(passwordRegex)) {
+			localStorage.setItem("userEmail", emailInput.value);
 			window.location.replace("main.html");
 		} else {
 			passwordInput.value = "";
