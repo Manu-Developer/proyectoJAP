@@ -8,6 +8,7 @@
 		<link href="css/font-awesome.min.css" rel="stylesheet" />
 		<link href="css/bootstrap.min.css" rel="stylesheet" />
 		<link href="css/styles.css" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	</head>
 
 	<body>
@@ -27,18 +28,45 @@
 						<li class="nav-item">
 							<a class="nav-link" href="sell.html">Vender</a>
 						</li>
-						<li class="nav-item"></li>
+						<li class="nav-item">
+							<a class="nav-link" href="#" id="nav-userInfo"></a>
+						</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 		<main>
-			<div class="container">
-				<div class="alert alert-danger text-center" role="alert">
-					<h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-				</div>
+			<div class="container" id="productDataContainer"></div>
+			<div class="container py-4" id="product-comments">
+				<h2>Comentarios</h2>
+				<div class="row m-0" id="comments"></div>
+			</div>
+			<div class="container py-4 border-top">
+				<h2>Comentar</h2>
+				<h4 class="mb-3">Tu opinión:</h4>
+				<form id="comment-form">
+					<div class="form-group mb-3">
+						<textarea id="comment-text" rows="5" class="form-control" name="text" required="" style="height: 140px"></textarea>
+					</div>
+					<div class="form-row">
+						<div class="form-group">
+							<h4 class="mb-3">Tu Puntuación</h4>
+							<select class="form-control mb-3" id="rating" name="rating" required="">
+								<option value="1" selected>1 Estrella</option>
+								<option value="2">2 Estrellas</option>
+								<option value="3">3 Estrellas</option>
+								<option value="4">4 Estrellas</option>
+								<option value="5">5 Estrellas</option>
+							</select>
+						</div>
+						<div class="form-group ml-auto">
+							<button type="submit" class="btn btn-primary" id="btnSendComment"><i class="fas fa-paper-plane"></i> Enviar</button>
+						</div>
+					</div>
+				</form>
 			</div>
 		</main>
+		</div>
 		<footer class="text-muted">
 			<div class="container">
 				<p class="float-end">

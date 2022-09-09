@@ -46,12 +46,12 @@ function sortCategories(criteria, array) {
 	return result;
 }
 
-function setCatID(id) {
+const setCatID = (id) => {
 	localStorage.setItem("catID", id);
 	window.location = "products.html";
-}
+};
 
-function showCategoriesList() {
+const showCategoriesList = () => {
 	let htmlContentToAppend = "";
 	for (let i = 0; i < currentCategoriesArray.length; i++) {
 		let category = currentCategoriesArray[i];
@@ -76,7 +76,7 @@ function showCategoriesList() {
 		}
 		document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
 	}
-}
+};
 
 function sortAndShowCategories(sortCriteria, categoriesArray) {
 	currentSortCriteria = sortCriteria;
@@ -94,7 +94,7 @@ function sortAndShowCategories(sortCriteria, categoriesArray) {
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function (e) {
+document.addEventListener("DOMContentLoaded", (e) => {
 	document.getElementById("nav-userInfo").innerHTML = localStorage.getItem("userEmail");
 
 	getJSONData(CATEGORIES_URL).then(function (resultObj) {
@@ -120,10 +120,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
 	document.getElementById("clearRangeFilter").addEventListener("click", function () {
 		document.getElementById("rangeFilterCountMin").value = "";
 		document.getElementById("rangeFilterCountMax").value = "";
-
 		minCount = undefined;
 		maxCount = undefined;
-
 		showCategoriesList();
 	});
 
