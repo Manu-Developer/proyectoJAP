@@ -4,6 +4,7 @@ const btnSubmit = document.getElementById("btnSubmit");
 const msgInfo1 = document.getElementById("msg-info1");
 const msgInfo2 = document.getElementById("msg-info2");
 
+//Agrego un evento al boton de login, para que se procesen y validen todos los campos de texto rellenados por el usuario.
 btnSubmit.addEventListener("click", (event) => {
 	event.preventDefault();
 	const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$/;

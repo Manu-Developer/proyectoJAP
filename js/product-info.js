@@ -7,9 +7,10 @@ const commentInput = document.getElementById("comment-text");
 const ratingInput = document.getElementById("rating");
 const btnSendComment = document.getElementById("btnSendComment");
 
+//Funcion que se encarga de crear un fragmento HTML segun los datos que obtengamos de la consulta.
 const showProductData = (product) => {
 	productDataContainer.innerHTML = `
-        <div class="container mt-5">
+        <div class="mt-5">
             <h1 id="categoryName">${product.name}</h1>
             <hr class="my-3" />
             <h5 class="fw-bold">Precio</h5>
@@ -47,6 +48,7 @@ const showProductData = (product) => {
     `;
 };
 
+//Funcion que se encarga de retornar un fragmento HTML a partir de una cantidad especifica de estrellas.
 const starRating = (score) => {
 	let html = "";
 	for (let i = 0; i < score; i++) {
@@ -55,6 +57,8 @@ const starRating = (score) => {
 	return html;
 };
 
+//Funcion que se encarga de crear los fragmentos HTML correspondientes por cada comentario obtenido a partir de un producto.
+//Tambien se obtienen los comentarios generados por el usuario y se muestran en pantalla.
 const showProductComments = (product) => {
 	let htmlCommentsToAppend = "";
 	let userCommentsArray = JSON.parse(localStorage.getItem("userComments")) || [];
@@ -90,6 +94,7 @@ const showProductComments = (product) => {
 	productCommentsContainer.innerHTML = htmlCommentsToAppend;
 };
 
+//Funcion que se encarga de guardar los comentarios del usuario en localstorage para posteriormente usar la funcion showProductComments y asi poder mostrarlos.
 const saveProductComment = () => {
 	let userCommentsArray = JSON.parse(localStorage.getItem("userComments")) || [];
 	const userComment = {
@@ -109,6 +114,7 @@ const saveProductComment = () => {
 document.addEventListener("DOMContentLoaded", (e) => {
 	document.getElementById("nav-userInfo").innerHTML = localStorage.getItem("userEmail");
 
+	//Obtenemos los datos del producto y lo guardamos en la variable currentProductData.
 	getJSONData(CURRENT_PRODUCT).then((resultObj) => {
 		if (resultObj.status === "ok") {
 			let currentProductData = resultObj.data;
@@ -116,6 +122,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 		}
 	});
 
+	//Obtenemos los comentarios del producto y lo guardamos en la variable currentProductComments.
 	getJSONData(CURRENT_PRODUCT_COMMENTS).then((resultObj) => {
 		if (resultObj.status === "ok") {
 			let currentProductComments = resultObj.data;

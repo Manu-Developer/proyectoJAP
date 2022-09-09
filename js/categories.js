@@ -6,6 +6,7 @@ let currentSortCriteria = undefined;
 let minCount = undefined;
 let maxCount = undefined;
 
+//Funcion que ordena las categorias segun la criteria (Orden Descendente/Orden Ascendente) utilizando el metodo sort.
 function sortCategories(criteria, array) {
 	let result = [];
 	if (criteria === ORDER_ASC_BY_NAME) {
@@ -46,11 +47,13 @@ function sortCategories(criteria, array) {
 	return result;
 }
 
+//Funcion que guarda en local storage el ID de la categoria cuando esta es clickeada por el usuario. La guardamos para posteriormente mostrar articulos asociados a esa categoria por medio del ID.
 const setCatID = (id) => {
 	localStorage.setItem("catID", id);
 	window.location = "products.html";
 };
 
+//Funcion que genera todo el HTML correspondiente a cada categoria. Recorremos todo el array y por cada posicion obtenemos sus datos y los transformamos finalmente a fragmentos HTML.
 const showCategoriesList = () => {
 	let htmlContentToAppend = "";
 	for (let i = 0; i < currentCategoriesArray.length; i++) {
@@ -78,6 +81,7 @@ const showCategoriesList = () => {
 	}
 };
 
+//Funcion para ordenar y mostrar las categorias.
 function sortAndShowCategories(sortCriteria, categoriesArray) {
 	currentSortCriteria = sortCriteria;
 

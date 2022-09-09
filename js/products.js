@@ -4,11 +4,13 @@ let currentProductsArray = [];
 let min = undefined;
 let max = undefined;
 
+//Funcion que se encarga de guardar el id del producto.
 const setProductID = (id) => {
 	localStorage.setItem("productID", id);
 	window.location = "product-info.html";
 };
 
+//Funcion que se encarga de generar los fragmentos HTML correspondientes a cada producto.
 const showProductsList = (productsArray) => {
 	document.getElementById("prod-list-container").innerHTML = "";
 	let htmlContentToAppend = "";
@@ -16,7 +18,7 @@ const showProductsList = (productsArray) => {
 	for (const product of productsArray) {
 		if (!(parseInt(product.cost) < min) && !(parseInt(product.cost) > max)) {
 			htmlContentToAppend += `
-            <a href="#" onclick="setProductID(${product.id})" class="list-group-item list-group-item-action">
+            <a href="#" onclick="setProductID(${product.id})" class="list-group-item list-group-item-actionA">
                 <div class="row">
                     <div class="col-12 col-md-3">
                         <img src="${product.image}" alt="${product.description}" class="img-thumbnail">
@@ -39,6 +41,7 @@ const showProductsList = (productsArray) => {
 document.addEventListener("DOMContentLoaded", (e) => {
 	document.getElementById("nav-userInfo").innerHTML = localStorage.getItem("userEmail");
 
+	//Obtenemos los datos de la categoria y lo guardamos en la variable global currentProductsArray.
 	getJSONData(CURRENT_CATEGORY_PRODUCTS).then((resultObj) => {
 		if (resultObj.status === "ok") {
 			currentProductsArray = resultObj.data.products;
