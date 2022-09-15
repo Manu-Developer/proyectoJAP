@@ -97,12 +97,21 @@ const showProductComments = (product) => {
 //Funcion que se encarga de guardar los comentarios del usuario en localstorage para posteriormente usar la funcion showProductComments y asi poder mostrarlos.
 const saveProductComment = () => {
 	let userCommentsArray = JSON.parse(localStorage.getItem("userComments")) || [];
+
+	const getMonthDayYear = () => {
+		const date = new Date();
+		const day = date.getDate();
+		const month = date.getMonth() + 1;
+		const year = date.getFullYear();
+		return `${year}-${month}-${day}`;
+	};
+
 	const userComment = {
 		"productId": CURRENT_PRODUCT_ID,
 		"comment": commentInput.value,
 		"score": ratingInput.value,
 		"date": {
-			"CURRENT_DATE": new Date().toJSON().slice(0, 10),
+			"CURRENT_DATE": getMonthDayYear(),
 			"CURRENT_HOURS_MINS_MILISECONDS": String(new Date()).slice(16, 24),
 		},
 	};
