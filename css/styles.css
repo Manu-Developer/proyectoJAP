@@ -192,3 +192,8 @@ a.custom-card:hover {
 .checked {
 	color: orange;
 }
+
+.related-product-image {
+	max-width: 400px;
+	height: auto;
+}

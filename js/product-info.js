@@ -6,6 +6,12 @@ const productCommentsContainer = document.getElementById("comments");
 const commentInput = document.getElementById("comment-text");
 const ratingInput = document.getElementById("rating");
 const btnSendComment = document.getElementById("btnSendComment");
+const relatedProductsContainer = document.getElementById("related-products");
+
+const setProductID = (id) => {
+	localStorage.setItem("productID", id);
+	window.location = "product-info.html";
+};
 
 //Funcion que se encarga de crear un fragmento HTML segun los datos que obtengamos de la consulta.
 const showProductData = (product) => {
@@ -46,6 +52,29 @@ const showProductData = (product) => {
             </div>
         </div>
     `;
+
+	relatedProductsContainer.innerHTML = `
+		<div class="col-lg-3 col-md-4 col-12 border p-3">
+			<div class="d-block h-100">
+				<a href="#" onclick="setProductID(${product.relatedProducts[0].id})">
+					<img src="${product.relatedProducts[0].image}" class="card-img-top" alt="${product.relatedProducts[0].title}">
+					<div class="card-body">
+						<h5 class="card-title">${product.relatedProducts[0].name}</h5>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-4 col-12 border p-3">
+			<div class="d-blockh-100">
+				<a href="#" onclick="setProductID(${product.relatedProducts[1].id})">
+					<img src="${product.relatedProducts[1].image}" class="card-img-top" alt="${product.relatedProducts[1].title}">
+					<div class="card-body">
+						<h5 class="card-title">${product.relatedProducts[1].name}</h5>
+					</div>
+				</a>
+			</div>
+		</div>	
+	`;
 };
 
 //Funcion que se encarga de retornar un fragmento HTML a partir de una cantidad especifica de estrellas.
@@ -127,6 +156,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	getJSONData(CURRENT_PRODUCT).then((resultObj) => {
 		if (resultObj.status === "ok") {
 			let currentProductData = resultObj.data;
+			console.log(currentProductData.relatedProducts);
 			showProductData(currentProductData);
 		}
 	});
