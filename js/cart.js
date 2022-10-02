@@ -2,7 +2,7 @@ const USER_25801 = `https://japceibal.github.io/emercado-api/user_cart/25801.jso
 const cartProducts = document.getElementById("cartProducts");
 let productsOnStorage = JSON.parse(localStorage.getItem("productsOnCart")) || [];
 
-//Funcion que se encarga de crear todos los elementos HTML correspondientes a partir del carrito de compras del usuario 25801.
+//Funcion que se encarga de crear todos los elementos HTML correspondientes a partir de los productos dentro del carrito de compras.
 const showCartProducts = (product) => {
 	const tr = document.createElement("tr");
 
@@ -26,7 +26,7 @@ const showCartProducts = (product) => {
 document.addEventListener("DOMContentLoaded", (e) => {
 	document.getElementById("nav-userInfo").innerHTML = localStorage.getItem("userEmail");
 
-	//Obtenemos los datos del carrito de compras del Usuario 25801 para mostrarlos mediante elementos HTML.
+	//Obtenemos los datos del carrito de compras para mostrarlos mediante elementos HTML.
 	getJSONData(USER_25801).then((resultObj) => {
 		if (resultObj.status === "ok") {
 			const userCartProductsOnStorage = [...resultObj.data.articles, ...productsOnStorage];
