@@ -7,6 +7,9 @@ const commentInput = document.getElementById("comment-text");
 const ratingInput = document.getElementById("rating");
 const btnSendComment = document.getElementById("btnSendComment");
 const relatedProductsContainer = document.getElementById("related-products");
+const btnBuy = document.getElementById("comprar");
+
+let productsOnStorage = JSON.parse(localStorage.getItem("productsOnCart")) || [];
 
 const setProductID = (id) => {
 	localStorage.setItem("productID", id);
@@ -30,22 +33,22 @@ const showProductData = (product) => {
             <h5 class="fw-bold">Imágenes ilustrativas</h5>
             <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
                 <div class="col-lg-3 col-md-4 col-12">
-                    <div class="d-block mb-4 h-100">
+                    <div class="d-block h-100">
                         <img class="img-fluid img-thumbnail" src="img/prod${product.id}_1.jpg" alt="" />
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-12">
-                    <div class="d-block mb-4 h-100">
+                    <div class="d-block h-100">
                         <img class="img-fluid img-thumbnail" src="img/prod${product.id}_2.jpg" alt="" />
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-12">
-                    <div class="d-block mb-4 h-100">
+                    <div class="d-block h-100">
                         <img class="img-fluid img-thumbnail" src="img/prod${product.id}_3.jpg" alt="" />
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-12">
-                    <div class="d-block mb-4 h-100">
+                    <div class="d-block h-100">
                         <img class="img-fluid img-thumbnail" src="img/prod${product.id}_4.jpg" alt="" />
                     </div>
                 </div>
@@ -156,7 +159,39 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	getJSONData(CURRENT_PRODUCT).then((resultObj) => {
 		if (resultObj.status === "ok") {
 			let currentProductData = resultObj.data;
-			console.log(currentProductData.relatedProducts);
+
+			const currentProductCart = {
+				"id": currentProductData.id,
+				"name": currentProductData.name,
+				"count": 1,
+				"unitCost": currentProductData.cost,
+				"currency": currentProductData.currency,
+				"image": currentProductData.images[0],
+			};
+
+			if (productsOnStorage.find((product) => product.id === currentProductCart.id)) {
+				btnBuy.textContent = "Remover del Carrito";
+				btnBuy.classList.add("bg-danger");
+			} else {
+				btnBuy.textContent = "Agregar al Carrito";
+				btnBuy.classList.add("bg-success");
+			}
+
+			btnBuy.addEventListener("click", (e) => {
+				btnBuy.classList.toggle("bg-danger");
+				btnBuy.classList.toggle("bg-success");
+
+				if (productsOnStorage.find((product) => product.id === currentProductCart.id)) {
+					productsOnStorage = productsOnStorage.filter((item) => item.id != currentProductCart.id);
+					localStorage.setItem("productsOnCart", JSON.stringify(productsOnStorage));
+					btnBuy.textContent = "Agregar al Carrito";
+				} else {
+					productsOnStorage = [currentProductCart, ...productsOnStorage];
+					localStorage.setItem("productsOnCart", JSON.stringify(productsOnStorage));
+					btnBuy.textContent = "Remover del Carrito";
+				}
+			});
+
 			showProductData(currentProductData);
 		}
 	});

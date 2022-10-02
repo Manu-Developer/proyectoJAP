@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 		max = undefined;
 		document.getElementById("rangeFilterCountMin").value = "";
 		document.getElementById("rangeFilterCountMax").value = "";
+		document.getElementById("filterText").value = "";
 		showProductsList(currentProductsArray);
 	});
 
@@ -68,6 +69,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
 			return parseInt(b.soldCount) - parseInt(a.soldCount);
 		});
 		showProductsList(currentProductsArray);
+	});
+
+	document.getElementById("filterText").addEventListener("input", () => {
+		const filteredArray = currentProductsArray.filter((product) => product.name.toLowerCase().includes(filterText.value.toLowerCase()));
+		showProductsList(filteredArray);
 	});
 
 	document.getElementById("sortDesc").addEventListener("click", () => {
