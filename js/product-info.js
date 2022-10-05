@@ -20,7 +20,7 @@ const setProductID = (id) => {
 const showProductData = (product) => {
 	productDataContainer.innerHTML = `
         <div class="mt-5">
-            <h1 id="categoryName">${product.name}</h1>
+			<h1 id="categoryName">${product.name}</h1>
             <hr class="my-3" />
             <h5 class="fw-bold">Precio</h5>
             <p id="productPrice">UYU ${product.cost}</p>
@@ -32,22 +32,22 @@ const showProductData = (product) => {
             <p id="productSoldCount">${product.soldCount} vendidos</p>
             <h5 class="fw-bold">Imágenes ilustrativas</h5>
             <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
-                <div class="col-lg-3 col-md-4 col-12">
+                <div class="col-lg-3 col-md-4 col-12 mb-3">
                     <div class="d-block h-100">
                         <img class="img-fluid img-thumbnail" src="img/prod${product.id}_1.jpg" alt="" />
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-12">
+                <div class="col-lg-3 col-md-4 col-12 mb-3">
                     <div class="d-block h-100">
                         <img class="img-fluid img-thumbnail" src="img/prod${product.id}_2.jpg" alt="" />
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-12">
+                <div class="col-lg-3 col-md-4 col-12 mb-3">
                     <div class="d-block h-100">
                         <img class="img-fluid img-thumbnail" src="img/prod${product.id}_3.jpg" alt="" />
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-12">
+                <div class="col-lg-3 col-md-4 col-12 mb-3">
                     <div class="d-block h-100">
                         <img class="img-fluid img-thumbnail" src="img/prod${product.id}_4.jpg" alt="" />
                     </div>
@@ -59,7 +59,7 @@ const showProductData = (product) => {
 	relatedProductsContainer.innerHTML = `
 		<div class="col-lg-3 col-md-4 col-12 border p-3">
 			<div class="d-block h-100">
-				<a href="#" onclick="setProductID(${product.relatedProducts[0].id})">
+				<a href="#" onclick="setProductID(${product.relatedProducts[0].id})" class="text-decoration-none text-reset">
 					<img src="${product.relatedProducts[0].image}" class="card-img-top" alt="${product.relatedProducts[0].title}">
 					<div class="card-body">
 						<h5 class="card-title">${product.relatedProducts[0].name}</h5>
@@ -69,7 +69,7 @@ const showProductData = (product) => {
 		</div>
 		<div class="col-lg-3 col-md-4 col-12 border p-3">
 			<div class="d-blockh-100">
-				<a href="#" onclick="setProductID(${product.relatedProducts[1].id})">
+				<a href="#" onclick="setProductID(${product.relatedProducts[1].id})" class="text-decoration-none text-reset">
 					<img src="${product.relatedProducts[1].image}" class="card-img-top" alt="${product.relatedProducts[1].title}">
 					<div class="card-body">
 						<h5 class="card-title">${product.relatedProducts[1].name}</h5>
@@ -170,10 +170,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
 			};
 
 			if (productsOnStorage.find((product) => product.id === currentProductCart.id)) {
-				btnBuy.textContent = "Remover del Carrito";
+				btnBuy.innerHTML = `<i class='fa fa-remove'></i> Remover del Carrito`;
 				btnBuy.classList.add("bg-danger");
 			} else {
-				btnBuy.textContent = "Agregar al Carrito";
+				btnBuy.innerHTML = `<i class='fas fa-cart-plus'></i> Agregar al Carrito`;
 				btnBuy.classList.add("bg-success");
 			}
 
@@ -184,11 +184,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
 				if (productsOnStorage.find((product) => product.id === currentProductCart.id)) {
 					productsOnStorage = productsOnStorage.filter((item) => item.id != currentProductCart.id);
 					localStorage.setItem("productsOnCart", JSON.stringify(productsOnStorage));
-					btnBuy.textContent = "Agregar al Carrito";
+					btnBuy.innerHTML = `<i class='fas fa-cart-plus'></i> Agregar al Carrito`;
 				} else {
 					productsOnStorage = [currentProductCart, ...productsOnStorage];
 					localStorage.setItem("productsOnCart", JSON.stringify(productsOnStorage));
-					btnBuy.textContent = "Remover del Carrito";
+					btnBuy.innerHTML = `<i class='fa fa-remove'></i> Remover del Carrito`;
 				}
 			});
 

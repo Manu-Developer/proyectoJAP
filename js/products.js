@@ -18,7 +18,7 @@ const showProductsList = (productsArray) => {
 	for (const product of productsArray) {
 		if (!(parseInt(product.cost) < min) && !(parseInt(product.cost) > max)) {
 			htmlContentToAppend += `
-            <a href="#" onclick="setProductID(${product.id})" class="list-group-item list-group-item-actionA">
+            <a href="#" onclick="setProductID(${product.id})" class="border list-group-item list-group-item-action cursor-active mb-4">
                 <div class="row">
                     <div class="col-12 col-md-3">
                         <img src="${product.image}" alt="${product.description}" class="img-thumbnail">
@@ -65,9 +65,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	});
 
 	document.getElementById("sortByCount").addEventListener("click", () => {
-		currentProductsArray.sort((a, b) => {
-			return parseInt(b.soldCount) - parseInt(a.soldCount);
-		});
+		currentProductsArray.sort((a, b) => parseInt(b.soldCount) - parseInt(a.soldCount));
 		showProductsList(currentProductsArray);
 	});
 
@@ -77,16 +75,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	});
 
 	document.getElementById("sortDesc").addEventListener("click", () => {
-		currentProductsArray.sort((a, b) => {
-			return parseInt(b.cost) - parseInt(a.cost);
-		});
+		currentProductsArray.sort((a, b) => parseInt(b.cost) - parseInt(a.cost));
 		showProductsList(currentProductsArray);
 	});
 
 	document.getElementById("sortAsc").addEventListener("click", () => {
-		currentProductsArray.sort((a, b) => {
-			return parseInt(a.cost) - parseInt(b.cost);
-		});
+		currentProductsArray.sort((a, b) => parseInt(a.cost) - parseInt(b.cost));
 		showProductsList(currentProductsArray);
 	});
 });

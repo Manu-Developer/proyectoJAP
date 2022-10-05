@@ -7,7 +7,7 @@ const showCartProducts = (product) => {
 	const tr = document.createElement("tr");
 
 	tr.innerHTML = `
-		<th scope="row"><img src="${product.image}" width="50px" alt="" /></th>
+		<th scope="row"><img src="${product.image}" width="50px" alt="Imágen del producto ${product.name}" /></th>
 		<td>${product.name}</td>
 		<td >${product.currency} ${product.unitCost}</td>
 		<td><input class="inputCart" type="number" value="${product.count}" min="0"/></td>
@@ -29,8 +29,8 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	//Obtenemos los datos del carrito de compras para mostrarlos mediante elementos HTML.
 	getJSONData(USER_25801).then((resultObj) => {
 		if (resultObj.status === "ok") {
-			const userCartProductsOnStorage = [...resultObj.data.articles, ...productsOnStorage];
-			userCartProductsOnStorage.forEach((product) => showCartProducts(product));
+			const userCartProducts = [...resultObj.data.articles, ...productsOnStorage];
+			userCartProducts.forEach((product) => showCartProducts(product));
 		}
 	});
 });
