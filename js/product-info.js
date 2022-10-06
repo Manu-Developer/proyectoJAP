@@ -32,22 +32,22 @@ const showProductData = (product) => {
             <p id="productSoldCount">${product.soldCount} vendidos</p>
             <h5 class="fw-bold">Imágenes ilustrativas</h5>
             <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
-                <div class="col-lg-3 col-md-4 col-12 mb-3">
+                <div class="col-lg-3 col-md-4 col-12 mb-4">
                     <div class="d-block h-100">
                         <img class="img-fluid img-thumbnail" src="img/prod${product.id}_1.jpg" alt="" />
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-12 mb-3">
+                <div class="col-lg-3 col-md-4 col-12 mb-4">
                     <div class="d-block h-100">
                         <img class="img-fluid img-thumbnail" src="img/prod${product.id}_2.jpg" alt="" />
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-12 mb-3">
+                <div class="col-lg-3 col-md-4 col-12 mb-4">
                     <div class="d-block h-100">
                         <img class="img-fluid img-thumbnail" src="img/prod${product.id}_3.jpg" alt="" />
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-12 mb-3">
+                <div class="col-lg-3 col-md-4 col-12 mb-4">
                     <div class="d-block h-100">
                         <img class="img-fluid img-thumbnail" src="img/prod${product.id}_4.jpg" alt="" />
                     </div>
@@ -57,7 +57,7 @@ const showProductData = (product) => {
     `;
 
 	relatedProductsContainer.innerHTML = `
-		<div class="col-lg-3 col-md-4 col-12 border p-3">
+		<div class="col-lg-3 col-md-4 col-12 border p-3 me-4 mb-4">
 			<div class="d-block h-100">
 				<a href="#" onclick="setProductID(${product.relatedProducts[0].id})" class="text-decoration-none text-reset">
 					<img src="${product.relatedProducts[0].image}" class="card-img-top" alt="${product.relatedProducts[0].title}">
@@ -67,7 +67,7 @@ const showProductData = (product) => {
 				</a>
 			</div>
 		</div>
-		<div class="col-lg-3 col-md-4 col-12 border p-3">
+		<div class="col-lg-3 col-md-4 col-12 border p-3 mb-4">
 			<div class="d-blockh-100">
 				<a href="#" onclick="setProductID(${product.relatedProducts[1].id})" class="text-decoration-none text-reset">
 					<img src="${product.relatedProducts[1].image}" class="card-img-top" alt="${product.relatedProducts[1].title}">
