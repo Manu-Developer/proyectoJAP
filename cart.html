@@ -82,9 +82,9 @@
 						</div>
 					</fieldset>
 
-					<fieldset class="form-group border p-3">
+					<fieldset class="form-group border p-3 mb-3">
 						<div class="row">
-							<legend class="col-form-label pt-0 fs-4">Dirección de Envío</legend>
+							<legend class="col-form-label pt-0 fs-4">Tipo de Envío</legend>
 							<div>
 								<div class="form-row row">
 									<div class="form-group col-md-6 mb-3">
@@ -99,6 +99,34 @@
 								<div class="form-group">
 									<label for="inputStInt">Esquina</label>
 									<input type="text" class="form-control" id="inputStInt" placeholder="Esquina" required="" />
+								</div>
+							</div>
+						</div>
+					</fieldset>
+
+					<fieldset class="form-group border p-3" id="costs">
+						<div class="row">
+							<legend class="col-form-label pt-0 fs-4">Costos</legend>
+							<div class="">
+								<div class="mb-3  d-flex justify-content-between  border-bottom align-items-center">
+									<div>
+										<p class="p-0 m-0">Subtotal</p>
+										<small class="text-muted font-italic">Costo unitario del producto por cantidad</small>
+									</div>
+									<div id="subTotal">UYU 0</div>
+								</div>
+								<div class="mb-3 d-flex justify-content-between border-bottom align-items-center">
+									<div>
+										<p class="p-0 m-0">Costo de Envío</p>
+										<small class="text-muted font-italic">Según el tipo de Envío</small>
+									</div>
+									<div id="shoppingCost">UYU 0</div>
+								</div>
+								<div class="d-flex justify-content-between  align-items-center">
+									<div>
+										<p class="p-0 m-0 font-weight-bold">Total ($)</p>
+									</div>
+									<div id="total" class="font-weight-bold">UYU 0</div>
 								</div>
 							</div>
 						</div>
