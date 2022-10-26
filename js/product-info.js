@@ -155,6 +155,11 @@ const saveProductComment = () => {
 document.addEventListener("DOMContentLoaded", (e) => {
 	document.getElementById("nav-userInfo").innerHTML = localStorage.getItem("userEmail");
 
+	document.getElementById("closeSession").addEventListener("click", () => {
+		localStorage.removeItem("userEmail");
+		window.location.replace("./index.html");
+	});
+
 	//Obtenemos los datos del producto y lo guardamos en la variable currentProductData.
 	getJSONData(CURRENT_PRODUCT).then((resultObj) => {
 		if (resultObj.status === "ok") {

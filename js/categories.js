@@ -101,6 +101,11 @@ function sortAndShowCategories(sortCriteria, categoriesArray) {
 document.addEventListener("DOMContentLoaded", (e) => {
 	document.getElementById("nav-userInfo").innerHTML = localStorage.getItem("userEmail");
 
+	document.getElementById("closeSession").addEventListener("click", () => {
+		localStorage.removeItem("userEmail");
+		window.location.replace("./index.html");
+	});
+
 	getJSONData(CATEGORIES_URL).then(function (resultObj) {
 		if (resultObj.status === "ok") {
 			currentCategoriesArray = resultObj.data;

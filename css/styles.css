@@ -197,3 +197,7 @@ a.custom-card:hover {
 	max-width: 400px;
 	height: auto;
 }
+
+#closeSession {
+	cursor: pointer;
+}

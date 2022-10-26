@@ -5,3 +5,9 @@
 .tdSubTotal {
 	font-weight: bold;
 }
+.invalidFeedback {
+	color: red;
+}
+.alert {
+	display: none;
+}

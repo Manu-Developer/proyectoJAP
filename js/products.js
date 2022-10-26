@@ -25,7 +25,7 @@ const showProductsList = (productsArray) => {
                     </div>
                     <div class="col-12 col-md-9 pt-2 pt-md-0">
                         <div class="d-flex w-100 justify-content-between">
-                            <h4 class="mb-1">${product.name} - USD ${product.cost}</h4>
+                            <h4 class="mb-1">${product.name} - ${product.currency} ${product.cost}</h4>
                             <small class="text-muted">${product.soldCount} vendidos</small>
                         </div>
                         <p class="mb-1">${product.description}</p>
@@ -40,6 +40,11 @@ const showProductsList = (productsArray) => {
 
 document.addEventListener("DOMContentLoaded", (e) => {
 	document.getElementById("nav-userInfo").innerHTML = localStorage.getItem("userEmail");
+
+	document.getElementById("closeSession").addEventListener("click", () => {
+		localStorage.removeItem("userEmail");
+		window.location.replace("./index.html");
+	});
 
 	//Obtenemos los datos de la categoria y lo guardamos en la variable global currentProductsArray.
 	getJSONData(CURRENT_CATEGORY_PRODUCTS).then((resultObj) => {
