@@ -81,6 +81,30 @@ const showCartProducts = (product) => {
 	});
 };
 
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function () {
+	"use strict";
+
+	// Fetch all the forms we want to apply custom Bootstrap validation styles to
+	var forms = document.querySelectorAll(".needs-validation");
+
+	// Loop over them and prevent submission
+	Array.prototype.slice.call(forms).forEach(function (form) {
+		form.addEventListener(
+			"submit",
+			function (event) {
+				if (!form.checkValidity()) {
+					event.preventDefault();
+					event.stopPropagation();
+				}
+
+				form.classList.add("was-validated");
+			},
+			false
+		);
+	});
+})();
+
 document.addEventListener("DOMContentLoaded", (e) => {
 	document.getElementById("nav-userInfo").innerHTML = localStorage.getItem("userEmail");
 
@@ -103,30 +127,6 @@ document.addEventListener("DOMContentLoaded", (e) => {
 		calculateFinalCost();
 		showFinalCost();
 	});
-
-	// Example starter JavaScript for disabling form submissions if there are invalid fields
-	(function () {
-		"use strict";
-
-		// Fetch all the forms we want to apply custom Bootstrap validation styles to
-		var forms = document.querySelectorAll(".needs-validation");
-
-		// Loop over them and prevent submission
-		Array.prototype.slice.call(forms).forEach(function (form) {
-			form.addEventListener(
-				"submit",
-				function (event) {
-					if (!form.checkValidity()) {
-						event.preventDefault();
-						event.stopPropagation();
-					}
-
-					form.classList.add("was-validated");
-				},
-				false
-			);
-		});
-	})();
 
 	//Validaciones para el Modal.
 	document.getElementById("paymentMethod1").addEventListener("click", () => {
@@ -151,10 +151,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	});
 
 	//Validaciones para el Formulario.
-	submitForm.addEventListener("click", (event) => {
+	cartForm.addEventListener("submit", (event) => {
 		if (cartForm.checkValidity()) {
 			document.querySelector(".alert").style.display = "block";
 			event.preventDefault();
+			event.stopPropagation();
 		}
 	});
 
