@@ -58,7 +58,6 @@ const showCartProducts = (product) => {
 	let subTotalProducto = product.unitCost;
 	subTotalFinalUSD += subTotalProducto;
 
-	console.log(subTotalFinalUSD);
 	const tr = document.createElement("tr");
 
 	tr.innerHTML = `
@@ -80,30 +79,6 @@ const showCartProducts = (product) => {
 		showFinalCost();
 	});
 };
-
-// Example starter JavaScript for disabling form submissions if there are invalid fields
-(function () {
-	"use strict";
-
-	// Fetch all the forms we want to apply custom Bootstrap validation styles to
-	var forms = document.querySelectorAll(".needs-validation");
-
-	// Loop over them and prevent submission
-	Array.prototype.slice.call(forms).forEach(function (form) {
-		form.addEventListener(
-			"submit",
-			function (event) {
-				if (!form.checkValidity()) {
-					event.preventDefault();
-					event.stopPropagation();
-				}
-
-				form.classList.add("was-validated");
-			},
-			false
-		);
-	});
-})();
 
 document.addEventListener("DOMContentLoaded", (e) => {
 	document.getElementById("nav-userInfo").innerHTML = localStorage.getItem("userEmail");
@@ -152,10 +127,11 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 	//Validaciones para el Formulario.
 	cartForm.addEventListener("submit", (event) => {
+		event.preventDefault();
+		event.stopPropagation();
+
 		if (cartForm.checkValidity()) {
 			document.querySelector(".alert").style.display = "block";
-			event.preventDefault();
-			event.stopPropagation();
 		}
 	});
 
