@@ -6,6 +6,11 @@ const PRODUCT_INFO_COMMENTS_URL = "https://japceibal.github.io/emercado-api/prod
 const CART_INFO_URL = "https://japceibal.github.io/emercado-api/user_cart/";
 const CART_BUY_URL = "https://japceibal.github.io/emercado-api/cart/buy.json";
 const EXT_TYPE = ".json";
+const userEmail = localStorage.getItem("userEmail")
+
+if(!userEmail && window.location.pathname!=="/index.html" && window.location.pathname!=="/proyectoJAP/" && window.location.pathname!=="/proyectoJAP/index.html"){
+	window.location.replace("./index.html")
+}
 
 //Funcion para activar display:block en el spinner.
 let showSpinner = function () {
