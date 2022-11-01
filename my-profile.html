@@ -63,61 +63,53 @@
 			</div>
 		</nav>
 		<main>
-			<div class="container p-5">
+			<div class="container mt-4">
+				<h2 class="fw-normal mb-4">Perfil</h2>
 				<form id="profileForm" class="needs-validation" novalidate>
 					<div class="row">
-						<div class="col-12 col-md-3 col-xl-2">
-							<div>
-								<img src="./img/default-avatar.svg" id="currentAvatarImage" class="avatar-image" alt="" />
+						<div class="col-12">
+							<div class="col-12 mb-4">
+								<div>
+									<img src="./img/default-avatar.svg" id="currentAvatarImage" class="avatar-image col-3" alt="Foto de Perfil" />
+								</div>
+								<div class="mt-2">
+									<input type="file" id="imageInput" accept="image/jpeg, image/png, image/jpg" />
+								</div>
 							</div>
-							<div class="text-center p-2">
-								<a href="#" data-toggle="modal" data-target="#avatarSelectionForm">Seleccionar</a>
-							</div>
-						</div>
-						<div class="col-12 col-md-9 col-xl-10">
 							<div class="row">
 								<div class="col-12 col-md-6 pb-4">
-									<label for="firstName" class="form-label">Primer Nombre</label>
+									<label for="firstName" class="form-label">Primer Nombre*</label>
 									<input type="text" class="form-control" id="firstName" pattern="[A-Za-z]+" required />
 									<div class="invalid-feedback">Debe ingresar un primer nombre válido.</div>
 								</div>
 								<div class="col-12 col-md-6 pb-4">
 									<label for="middleName" class="form-label">Segundo Nombre</label>
-									<input type="text" class="form-control" id="middleName" pattern="[A-Za-z]+" required />
+									<input type="text" class="form-control" id="middleName" pattern="[A-Za-z]+" />
 									<div class="invalid-feedback">Debe ingresar un segundo nombre válido.</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-12 col-md-6 pb-4">
-									<label for="lastName1" class="form-label">Primer Apellido</label>
+									<label for="lastName1" class="form-label">Primer Apellido*</label>
 									<input type="text" class="form-control" id="lastName1" pattern="[A-Za-z]+" required />
 									<div class="invalid-feedback">Debe ingresar un primer apellido válido.</div>
 								</div>
 								<div class="col-12 col-md-6 pb-4">
 									<label for="lastName2" class="form-label">Segundo Apellido</label>
-									<input type="text" class="form-control" id="lastName2" pattern="[A-Za-z]+" required />
+									<input type="text" class="form-control" id="lastName2" pattern="[A-Za-z]+" />
 									<div class="invalid-feedback">Debe ingresar un segundo apellido válido.</div>
 								</div>
 							</div>
 
 							<div class="row">
 								<div class="col-12 col-lg-6 pb-4">
-									<label for="dateOfBirth" class="form-label">Fecha de Nacimiento</label>
-									<input type="date" class="form-control" id="dateOfBirth" required />
-									<div class="invalid-feedback">Debe ingresar una fecha de nacimiento válida.</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-12 col-lg-6 pb-4">
-									<label for="email" class="form-label">Email</label>
-									<input type="email" class="form-control" id="email" required />
+									<label for="email" class="form-label">E-mail*</label>
+									<input type="email" class="form-control" id="email" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+$" required />
 									<div class="invalid-feedback">Debe ingresar un email válido.</div>
 								</div>
-							</div>
-							<div class="row">
 								<div class="col-12 col-lg-6 pb-4">
 									<label for="phone" class="form-label">Teléfono de Contacto</label>
-									<input type="tel" class="form-control" id="phone" pattern="^([\+][0-9]{1,3}|0)?[0-9]{8}$" required />
+									<input type="tel" class="form-control" id="phone" pattern="^([\+][0-9]{1,3}|0)?[0-9]{8}$" />
 									<div class="invalid-feedback">Debe ingresar un teléfono de contacto válido.</div>
 								</div>
 							</div>
@@ -125,7 +117,7 @@
 
 							<div class="alert alert-success alert-dismissible fade show" role="alert">
 								<p class="mb-0">Datos guardados satisfactoriamente.</p>
-								<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+								<button type="button" class="btn-close" aria-label="Close"></button>
 							</div>
 						</div>
 					</div>

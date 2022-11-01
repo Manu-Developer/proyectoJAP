@@ -24,11 +24,6 @@ main {
 	padding: 15px;
 }
 
-#msg-error1,
-#msg-error2 {
-	color: #dc3545;
-}
-
 footer p:not(:nth-child(3)) {
 	display: flex;
 }

@@ -34,22 +34,22 @@ const showProductData = (product) => {
             <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
                 <div class="col-lg-3 col-md-4 col-12 mb-4">
                     <div class="d-block h-100">
-                        <img class="img-fluid img-thumbnail" src="img/prod${product.id}_1.jpg" alt="" />
+                        <img class="img-fluid img-thumbnail" src="img/prod${product.id}_1.jpg" alt="${product.name}" />
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-12 mb-4">
                     <div class="d-block h-100">
-                        <img class="img-fluid img-thumbnail" src="img/prod${product.id}_2.jpg" alt="" />
+                        <img class="img-fluid img-thumbnail" src="img/prod${product.id}_2.jpg" alt="${product.name}" />
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-12 mb-4">
                     <div class="d-block h-100">
-                        <img class="img-fluid img-thumbnail" src="img/prod${product.id}_3.jpg" alt="" />
+                        <img class="img-fluid img-thumbnail" src="img/prod${product.id}_3.jpg" alt="${product.name}" />
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-12 mb-4">
                     <div class="d-block h-100">
-                        <img class="img-fluid img-thumbnail" src="img/prod${product.id}_4.jpg" alt="" />
+                        <img class="img-fluid img-thumbnail" src="img/prod${product.id}_4.jpg" alt="${product.name}" />
                     </div>
                 </div>
             </div>
