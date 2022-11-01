@@ -46,8 +46,12 @@ document.addEventListener("DOMContentLoaded", (e) => {
 	document.getElementById("nav-userInfo").innerHTML = localStorage.getItem("userEmail");
 	showProfile();
 
-	document.querySelector(".btn-close").addEventListener("click", () => {
-		document.querySelector(".alert").style.display = "none";
+	document.querySelector(".btn-close1").addEventListener("click", () => {
+		document.querySelector(".alert1").style.display = "none";
+	});
+
+	document.querySelector(".btn-close2").addEventListener("click", () => {
+		document.querySelector(".alert2").style.display = "none";
 	});
 
 	//Guardamos la imagen en local storage, la traemos y la usamos/modificamos cuando necesitemos.
@@ -68,6 +72,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 		if (this.files[0]) {
 			reader.readAsDataURL(this.files[0]);
+			document.querySelector(".alert2").style.display = "block";
 		}
 	});
 
@@ -83,7 +88,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
 		if (profileForm.checkValidity()) {
 			saveProfile();
-			document.querySelector(".alert").style.display = "block";
+			document.querySelector(".alert1").style.display = "block";
 		}
 	});
 });
