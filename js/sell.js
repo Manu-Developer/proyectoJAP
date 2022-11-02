@@ -28,6 +28,10 @@ function updateTotalCosts() {
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
+	if (!userEmail) {
+		window.location.replace("./index.html");
+	}
+
 	document.getElementById("nav-userInfo").innerHTML = localStorage.getItem("userEmail");
 
 	document.getElementById("closeSession").addEventListener("click", () => {

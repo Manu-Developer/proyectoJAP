@@ -81,6 +81,10 @@ const showCartProducts = (product) => {
 };
 
 document.addEventListener("DOMContentLoaded", (e) => {
+	if (!userEmail) {
+		window.location.replace("./index.html");
+	}
+
 	document.getElementById("nav-userInfo").innerHTML = localStorage.getItem("userEmail");
 
 	document.querySelector(".btn-close").addEventListener("click", () => {

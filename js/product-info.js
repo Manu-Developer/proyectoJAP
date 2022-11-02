@@ -153,6 +153,10 @@ const saveProductComment = () => {
 };
 
 document.addEventListener("DOMContentLoaded", (e) => {
+	if (!userEmail) {
+		window.location.replace("./index.html");
+	}
+
 	document.getElementById("nav-userInfo").innerHTML = localStorage.getItem("userEmail");
 
 	document.getElementById("closeSession").addEventListener("click", () => {

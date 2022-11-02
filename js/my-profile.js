@@ -16,7 +16,7 @@ const showProfile = () => {
 	middleName.value = userProfile.middleName || "";
 	lastName1.value = userProfile.lastName1 || "";
 	lastName2.value = userProfile.lastName2 || "";
-	email.value = userProfile.email || localStorage.getItem("userEmail");
+	email.value = localStorage.getItem("userEmail");
 	phone.value = userProfile.phone || "";
 };
 
@@ -27,22 +27,26 @@ const saveProfile = () => {
 		middleName: "",
 		lastName1: "",
 		lastName2: "",
-		email: "",
+		email: localStorage.getItem("userEmail"),
 		phone: "",
 	};
 
 	userProfile.firstName = firstName.value;
-	userProfile.middleName = middleName.value || "";
+	userProfile.middleName = middleName.value;
 	userProfile.lastName1 = lastName1.value;
-	userProfile.lastName2 = lastName2.value || "";
+	userProfile.lastName2 = lastName2.value;
 	userProfile.email = email.value;
-	userProfile.phone = phone.value || "";
+	userProfile.phone = phone.value;
 
 	localStorage.setItem("userProfile", JSON.stringify(userProfile));
 	showProfile();
 };
 
 document.addEventListener("DOMContentLoaded", (e) => {
+	if (!userEmail) {
+		window.location.replace("./index.html");
+	}
+
 	document.getElementById("nav-userInfo").innerHTML = localStorage.getItem("userEmail");
 	showProfile();
 
