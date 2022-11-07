@@ -18,9 +18,21 @@ const provider = new GoogleAuthProvider();
 document.getElementById("google-auth").addEventListener("click", async () => {
 	provider.addScope("profile");
 	signInWithPopup(auth, provider).then(({user}) => {
-		//Para usos posteriores declaro displayName y photoURL
-		const {displayName, email, photoURL} = user;
-		window.localStorage.setItem("userEmail", email);
+		const {email} = user;
+		localStorage.setItem("userEmail", email);
+
+		let userProfile = JSON.parse(localStorage.getItem("userProfile")) || {
+			firstName: "",
+			middleName: "",
+			lastName1: "",
+			lastName2: "",
+			email: "",
+			phone: "",
+		};
+
+		userProfile.email = localStorage.getItem("userEmail");
+		localStorage.setItem("userProfile", JSON.stringify(userProfile));
+
 		window.location.replace("main.html");
 	});
 });

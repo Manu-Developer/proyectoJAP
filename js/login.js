@@ -8,6 +8,19 @@ loginForm.addEventListener("submit", (event) => {
 
 	if (loginForm.checkValidity()) {
 		localStorage.setItem("userEmail", emailInput.value);
+
+		let userProfile = JSON.parse(localStorage.getItem("userProfile")) || {
+			firstName: "",
+			middleName: "",
+			lastName1: "",
+			lastName2: "",
+			email: "",
+			phone: "",
+		};
+
+		userProfile.email = localStorage.getItem("userEmail");
+		localStorage.setItem("userProfile", JSON.stringify(userProfile));
+
 		window.location.replace("main.html");
 	}
 });

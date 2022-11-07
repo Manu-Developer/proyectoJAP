@@ -22,14 +22,7 @@ const showProfile = () => {
 
 //Funcion que se encarga de modificar el perfil del usuario para posteriormente guardar esas modificaciones en el localStorage.
 const saveProfile = () => {
-	let userProfile = JSON.parse(localStorage.getItem("userProfile")) || {
-		firstName: "",
-		middleName: "",
-		lastName1: "",
-		lastName2: "",
-		email: localStorage.getItem("userEmail"),
-		phone: "",
-	};
+	let userProfile = JSON.parse(localStorage.getItem("userProfile")) || {};
 
 	userProfile.firstName = firstName.value;
 	userProfile.middleName = middleName.value;

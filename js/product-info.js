@@ -148,8 +148,10 @@ const saveProductComment = () => {
 		},
 	};
 
-	userCommentsArray.push(userComment);
-	localStorage.setItem("userComments", JSON.stringify(userCommentsArray));
+	if (userComment.comment !== "") {
+		userCommentsArray.push(userComment);
+		localStorage.setItem("userComments", JSON.stringify(userCommentsArray));
+	}
 };
 
 document.addEventListener("DOMContentLoaded", (e) => {
